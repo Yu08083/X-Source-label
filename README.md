@@ -56,6 +56,7 @@ X-Source-label/
 ├── site.webmanifest            PWA マニフェスト
 ├── README.md
 ├── LICENSE                     MIT
+├── THIRD_PARTY_NOTICES.md      サードパーティクレジット
 └── .gitignore
 ```
 
@@ -83,9 +84,12 @@ python3 -m http.server 8000
 
 ## クレジット
 
-- 実装アイデアの参考: [irucabot/ReturnTweetSourceLabel](https://github.com/irucabot/ReturnTweetSourceLabel)
-- 内部 API リファレンス: [fa0311/TwitterInternalAPIDocument](https://github.com/fa0311/TwitterInternalAPIDocument)
-- 作者: [@yu_](https://x.com/yu_)
+本プロジェクトは以下のサードパーティ製ソフトウェアを参考にしています。詳細なライセンス情報は [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) を参照してください。
+
+- **[irucabot/ReturnTweetSourceLabel](https://github.com/irucabot/ReturnTweetSourceLabel)** — `TweetResultByRestId` を使った投稿元情報の取得手法を参考にしています。MIT License, Copyright (c) 2022 iruca.
+- **[fa0311/TwitterInternalAPIDocument](https://github.com/fa0311/TwitterInternalAPIDocument)** — X の内部 GraphQL API のリファレンスとして参照しています。
+
+作者: [@yu_](https://x.com/yu_)
 
 ## ライセンス
 
