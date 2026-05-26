@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tweet Source Label — 投稿元ラベルをもう一度</title>
+<meta name="description" content="X(Twitter)で非表示になったツイートの投稿元ラベル（Twitter for iPhone等）を、日付の隣にインラインで表示するブックマークレットです。">
+<meta property="og:title" content="Tweet Source Label">
+<meta property="og:description" content="X(Twitter)で非表示になった投稿元ラベルを表示するブックマークレット">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='400' text-anchor='middle' fill='%23fff' font-style='italic'%3ES%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="#top">Tweet Source Label</a>
+    <nav class="nav">
+      <a href="#install">使い方</a>
+      <a href="#how">仕組み</a>
+      <a href="#specimens">ラベル一覧</a>
+      <a href="https://github.com/Yu08083/X-Source-label" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="kicker">
+            <span class="kicker-line"></span>
+            <span class="kicker-text">Bookmarklet</span>
+          </div>
+          <h1 class="display">
+            <span class="display-line">投稿元を、</span>
+            <span class="display-line"><em>もとの場所</em>へ。</span>
+          </h1>
+          <p class="lead">
+            かつてすべてのツイートには「<span class="hl">Twitter for iPhone</span>」「<span class="hl">Twitter for Android</span>」といった投稿元の表示がありました。Xはこの表示を画面から取りやめましたが、データはサーバーに残っています。このブックマークレットは、消えたその一行を、もとあった場所（日付の隣）に再表示します。
+          </p>
+
+          <div class="bookmarklet-zone">
+            <a id="bookmarklet" class="bookmarklet" href="#" draggable="true">
+              Source Label
+            </a>
+            <div class="bm-hint">
+              このボタンを、ブラウザのブックマークバーへドラッグ＆ドロップしてください。
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-aside">
+          <div class="inline-preview">
+            <div class="ip-tag">表示例</div>
+            <div class="ip-handle">フードタウン【公式】</div>
+            <div class="ip-username">@foodtown_JP</div>
+            <div class="ip-body">商品が割れていたので返金対応をしました。</div>
+            <div class="ip-meta">2026年5月26日 · <span class="ip-source">Twitter for iPhone</span></div>
+            <div class="ip-caption">↑ この一行を、もう一度表示します。</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="install" class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 class="section-title">使い方</h2>
+        <p class="section-sub">Installation</p>
+      </div>
+
+      <div class="install-steps">
+        <div class="step">
+          <div class="step-num">01.</div>
+          <div class="step-body">
+            <h3>ブックマークバーを表示する</h3>
+            <p>Windows / Linux の場合は <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>、Mac の場合は <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> でブックマークバーを表示できます。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02.</div>
+          <div class="step-body">
+            <h3>ボタンをブックマークバーへドラッグする</h3>
+            <p>このページ上部にある黒い <span class="inline-button">Source Label</span> ボタンを、ブックマークバーへドラッグ＆ドロップしてください。これで設置は完了です。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03.</div>
+          <div class="step-body">
+            <h3>ツイートを開いてクリックする</h3>
+            <p>X.com にログインした状態で、個別のツイートページ（URL に <code>/status/...</code> が含まれるページ）を開いてください。登録したブックマークをクリックすると、ツイートの日付の右側に投稿元のラベルが追加されます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="section section-dark">
+    <div class="container">
+      <div class="section-head section-head-light">
+        <span class="section-num">02</span>
+        <h2 class="section-title">仕組み</h2>
+        <p class="section-sub">How it works</p>
+      </div>
+
+      <div class="how-grid">
+        <div class="how-text">
+          <p class="how-lead">
+            投稿元ラベルは消えたわけではなく、表示されなくなっただけです。
+          </p>
+          <p>
+            X(Twitter) は 2022 年末頃から、公式 UI および API v2 のレスポンスから投稿元情報（<code>source</code> フィールド）の表示を取りやめました。タイムラインを見ても、開発者ツールでネットワークを見ても、もうそこにはありません。
+          </p>
+          <p>
+            しかし、内部用 GraphQL エンドポイントのうち <code>TweetResultByRestId</code> という呼び出しでは、いまでも <code>source</code> フィールドが返ってきます。このブックマークレットはそこを直接呼び出し、レスポンスから一行を抜き出して DOM に挿入しています。
+          </p>
+          <p class="how-note">
+            ※ 認証にはブラウザに保存されている X.com のセッションクッキー（<code>ct0</code>）を使用します。外部サーバーへの通信は一切発生しません。
+          </p>
+        </div>
+
+        <div class="how-diagram">
+          <div class="flow">
+            <div class="flow-node">
+              <div class="flow-tag">USER</div>
+              <div class="flow-body">ブックマークを<br>クリック</div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node">
+              <div class="flow-tag">API</div>
+              <div class="flow-body"><code>TweetResultByRestId</code></div>
+            </div>
+            <div class="flow-arrow">↓</div>
+            <div class="flow-node flow-result">
+              <div class="flow-tag">INJECT</div>
+              <div class="flow-body">2026年5月26日 · Twitter for iPhone</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="specimens" class="section section-specimens">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2 class="section-title">ラベル一覧</h2>
+        <p class="section-sub">Common Source Labels</p>
+      </div>
+
+      <div class="specimen-grid">
+        <div class="spec-card">
+          <div class="spec-num">01</div>
+          <div class="spec-name">Twitter for iPhone</div>
+          <div class="spec-desc">iOS 版の公式アプリから投稿されたツイートです。最も多く見られます。</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-num">02</div>
+          <div class="spec-name">Twitter for Android</div>
+          <div class="spec-desc">Android 版の公式アプリから投稿されたツイートです。</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-num">03</div>
+          <div class="spec-name">Twitter Web App</div>
+          <div class="spec-desc">x.com のブラウザ版から投稿されたツイートです。</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-num">04</div>
+          <div class="spec-name">Twitter for iPad</div>
+          <div class="spec-desc">iPad 版アプリから投稿されたツイートです。iPhone とは区別されます。</div>
+        </div>
+        <div class="spec-card">
+          <div class="spec-num">05</div>
+          <div class="spec-name">TweetDeck Web App</div>
+          <div class="spec-desc">古くからのパワーユーザーに愛用されているクライアントです。</div>
+        </div>
+        <div class="spec-card spec-card-rare">
+          <div class="spec-num">??</div>
+          <div class="spec-name">Twitter for 冷蔵庫</div>
+          <div class="spec-desc">かつて流行したジョーク系。自作アプリの命名を利用したもので、稀に見かけます。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-code">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2 class="section-title">コード</h2>
+        <p class="section-sub">Source</p>
+      </div>
+
+      <div class="code-intro">
+        <p>このブックマークレットは外部サーバーに何も送信しません。実際のソースコードは以下の通り、約 40 行の JavaScript です。</p>
+      </div>
+
+      <div class="code-block">
+        <div class="code-head">
+          <span class="code-file">bookmarklet.js</span>
+          <button id="copy-code" class="copy-btn">コピー</button>
+        </div>
+        <pre><code id="code-display"></code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-warnings">
+    <div class="container">
+      <div class="warnings">
+        <h2 class="warn-title">注意事項</h2>
+        <ul class="warn-list">
+          <li><strong>非公開アカウント</strong>のツイートには使用できません。</li>
+          <li><strong>削除済みのツイート</strong>、および投稿元情報が空のツイートでは表示されません。</li>
+          <li>X 側の仕様変更により、突然動作しなくなる可能性があります。</li>
+          <li>このブックマークレットは X(Twitter) の公式・非公式どちらでもありません。利用は自己責任でお願いします。</li>
+          <li>動かなくなった場合や、改善案がある場合は <a href="https://github.com/Yu08083/X-Source-label/issues" target="_blank" rel="noopener">GitHub Issues</a> までお寄せください。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-block">
+      <div class="footer-title">Tweet Source Label</div>
+      <div class="footer-sub">X.com で消えた投稿元ラベルを、<br>もとの場所に表示するブックマークレットです。</div>
+    </div>
+    <div class="footer-block">
+      <div class="footer-label">Author</div>
+      <a href="https://x.com/yu_" target="_blank" rel="noopener" class="footer-link">@yu_</a>
+    </div>
+    <div class="footer-block">
+      <div class="footer-label">Repository</div>
+      <a href="https://github.com/Yu08083/X-Source-label" target="_blank" rel="noopener" class="footer-link">Yu08083/X-Source-label</a>
+    </div>
+    <div class="footer-block">
+      <div class="footer-label">License</div>
+      <div class="footer-text">MIT</div>
+    </div>
+  </div>
+  <div class="container footer-legal">
+    <p>This page and its tools are not affiliated with or endorsed by X Corp. All trademarks belong to their respective owners.</p>
+  </div>
+</footer>
+
+<div id="toast" class="toast" aria-live="polite"></div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
