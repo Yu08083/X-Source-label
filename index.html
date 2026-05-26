@@ -9,7 +9,11 @@
 <meta property="og:description" content="X(Twitter)で非表示になった投稿元ラベルを表示するブックマークレット">
 <meta property="og:type" content="website">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' font-weight='400' text-anchor='middle' fill='%23fff' font-style='italic'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#000000">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +25,10 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="logo" href="#top">Tweet Source Label</a>
+    <a class="logo" href="#top">
+      <img src="assets/icons/favicon.svg" alt="" class="logo-icon" width="24" height="24">
+      <span>Tweet Source Label</span>
+    </a>
     <nav class="nav">
       <a href="#install">使い方</a>
       <a href="#how">仕組み</a>
@@ -46,7 +53,7 @@
             <span class="display-line"><em>もとの場所</em>へ。</span>
           </h1>
           <p class="lead">
-            かつてすべてのツイートには「<span class="hl">Twitter for iPhone</span>」「<span class="hl">Twitter for Android</span>」といった投稿元の表示がありました。Xはこの表示を画面から取りやめましたが、データはサーバーに残っています。このブックマークレットは、消えたその一行を、もとあった場所（日付の隣）に再表示します。
+            かつてすべてのツイートには「<span class="hl">Twitter for iPhone</span>」「<span class="hl">Twitter for Android</span>」といった投稿元の表示がありました。Xはこの表示を画面から取りやめましたが、データはサーバーに残っています。このツールは、消えたその一行を、もとあった場所（日付の隣）に再表示します。PC ではブックマークレット、スマホではユーザースクリプトとして利用できます。
           </p>
 
           <div class="bookmarklet-zone">
@@ -81,28 +88,84 @@
         <p class="section-sub">Installation</p>
       </div>
 
-      <div class="install-steps">
-        <div class="step">
-          <div class="step-num">01.</div>
-          <div class="step-body">
-            <h3>ブックマークバーを表示する</h3>
-            <p>Windows / Linux の場合は <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>、Mac の場合は <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> でブックマークバーを表示できます。</p>
+      <div class="methods">
+
+        <div class="method">
+          <div class="method-head">
+            <div class="method-tag">A</div>
+            <div class="method-titles">
+              <h3 class="method-title">ブックマークレット</h3>
+              <p class="method-sub">PC で使う場合</p>
+            </div>
+          </div>
+
+          <div class="install-steps">
+            <div class="step">
+              <div class="step-num">01.</div>
+              <div class="step-body">
+                <h4>ブックマークバーを表示する</h4>
+                <p>Windows / Linux の場合は <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd>、Mac の場合は <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> でブックマークバーを表示できます。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">02.</div>
+              <div class="step-body">
+                <h4>ボタンをブックマークバーへドラッグする</h4>
+                <p>このページ上部にある黒い <span class="inline-button">Source Label</span> ボタンを、ブックマークバーへドラッグ＆ドロップしてください。これで設置は完了です。</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">03.</div>
+              <div class="step-body">
+                <h4>ツイートを開いてクリックする</h4>
+                <p>X.com にログインした状態で、個別のツイートページ（URL に <code>/status/...</code> が含まれるページ）を開いてください。登録したブックマークをクリックすると、ツイートの日付の右側に投稿元のラベルが追加されます。</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="step">
-          <div class="step-num">02.</div>
-          <div class="step-body">
-            <h3>ボタンをブックマークバーへドラッグする</h3>
-            <p>このページ上部にある黒い <span class="inline-button">Source Label</span> ボタンを、ブックマークバーへドラッグ＆ドロップしてください。これで設置は完了です。</p>
+
+        <div class="method">
+          <div class="method-head">
+            <div class="method-tag">B</div>
+            <div class="method-titles">
+              <h3 class="method-title">ユーザースクリプト</h3>
+              <p class="method-sub">スマホで使う場合 / 自動表示にしたい場合</p>
+            </div>
+          </div>
+
+          <div class="install-steps">
+            <div class="step">
+              <div class="step-num">01.</div>
+              <div class="step-body">
+                <h4>ユーザースクリプト管理ツールをインストールする</h4>
+                <p>お使いの環境に合わせて、以下のいずれかをインストールしてください。</p>
+                <ul class="env-list">
+                  <li><strong>iPhone / iPad</strong> — App Store から <a href="https://apps.apple.com/jp/app/userscripts/id1463298887" target="_blank" rel="noopener">Userscripts</a>（無料、Safari 拡張機能）</li>
+                  <li><strong>Android</strong> — <a href="https://play.google.com/store/apps/details?id=com.kiwibrowser.browser" target="_blank" rel="noopener">Kiwi Browser</a> または Firefox + <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener">Tampermonkey</a></li>
+                  <li><strong>PC</strong> — <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener">Tampermonkey</a> または <a href="https://violentmonkey.github.io/" target="_blank" rel="noopener">Violentmonkey</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">02.</div>
+              <div class="step-body">
+                <h4>スクリプトをインストールする</h4>
+                <p>下のボタンをタップするとユーザースクリプト管理ツールが起動し、確認画面が表示されます。「インストール」を選んで設置を完了させてください。</p>
+                <a class="install-btn" href="source-label.user.js" target="_blank" rel="noopener">
+                  source-label.user.js をインストール
+                </a>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">03.</div>
+              <div class="step-body">
+                <h4>X.com を開く</h4>
+                <p>以降、X.com で個別のツイートを開くだけで自動的に投稿元のラベルが日付の右側に追加されます。操作は必要ありません。</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="step">
-          <div class="step-num">03.</div>
-          <div class="step-body">
-            <h3>ツイートを開いてクリックする</h3>
-            <p>X.com にログインした状態で、個別のツイートページ（URL に <code>/status/...</code> が含まれるページ）を開いてください。登録したブックマークをクリックすると、ツイートの日付の右側に投稿元のラベルが追加されます。</p>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>
@@ -238,8 +301,13 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-block">
-      <div class="footer-title">Tweet Source Label</div>
-      <div class="footer-sub">X.com で消えた投稿元ラベルを、<br>もとの場所に表示するブックマークレットです。</div>
+      <div class="footer-brand">
+        <img src="assets/icons/favicon.svg" alt="" class="footer-icon" width="32" height="32">
+        <div>
+          <div class="footer-title">Tweet Source Label</div>
+          <div class="footer-sub">X.com で消えた投稿元ラベルを、<br>もとの場所に表示するブックマークレットです。</div>
+        </div>
+      </div>
     </div>
     <div class="footer-block">
       <div class="footer-label">Author</div>
